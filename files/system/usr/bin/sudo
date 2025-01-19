@@ -1,0 +1,2 @@
+#! /bin/bash -peux
+exec run0 "$@"

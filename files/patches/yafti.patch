@@ -1,0 +1,53 @@
+--- yafti.yml.orig	2025-01-18 21:08:24.713314324 +0000
++++ yafti.yml	2025-01-19 11:08:07.722241842 +0000
+@@ -78,6 +78,50 @@
+             - Flatseal (Permission Manager): com.github.tchx84.Flatseal
+             - Warehouse (App Installer/Manager): io.github.flattool.Warehouse
+ 
++  ptrace:
++    source: yafti.screen.consent
++    values:
++      title: ptrace support
++      condition:
++        run: grep -q "kernel.yama.ptrace_scope = 3" /etc/sysctl.d/hardening.conf
++      description: |
++        This step will enable ptracing child processes, which is needed by strace and gdb.
++      actions:
++        - run: ujust toggle-anticheat-support
++
++  container-userns:
++    source: yafti.screen.consent
++    values:
++      title: Container USERNS support
++      condition:
++        run: run0 semodule -l | grep -q harden_container_userns
++      description: |
++        This step will enable containers to create user namespaces, which is needed by podman.
++      actions:
++        - run: ujust toggle-container-domain-userns-creation
++
++  unconfined-userns:
++    source: yafti.screen.consent
++    values:
++      title: Unconfined USERNS support
++      condition:
++        run: run0 semodule -l | grep -q harden_userns
++      description: |
++        This step will enable unconfined applications to create user namespaces
++      actions:
++        - run: ujust toggle-unconfined-domain-userns-creation
++
++  xwayland:
++    source: yafti.screen.consent
++    values:
++      title: xwayland support
++      condition:
++        run: test '!' -e /etc/systemd/user/plasma-kwin_wayland.service.d/override.conf
++      description: |
++        This step will enable legacy X11 applications such as losslesscut to run
++      actions:
++        - run: ujust toggle-xwayland plasma
++
+   final-screen:
+     source: yafti.screen.title
+     values:

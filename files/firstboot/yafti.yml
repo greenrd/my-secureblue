@@ -1,0 +1,134 @@
+title: Welcome to secureblue!
+properties:
+  mode: "run-once"
+screens:
+  first-screen:
+    source: yafti.screen.title
+    values:
+      title: "Welcome to secureblue!"
+      icon: "/path/to/icon"
+      description: |
+        This guided installer will help you get started with your new system.
+
+  can-we-harden-your-flatpaks:
+    source: yafti.screen.consent
+    values:
+      title: Flatpak hardening
+      description: |
+        This step will enable hardening for installed flatpaks.
+      actions:
+        - run: ujust harden-flatpak
+
+  can-we-modify-your-flatpaks:
+    source: yafti.screen.consent
+    values:
+      title: Flathub setup
+      description: |
+        This step will remove all Fedora and Flathub Flatpaks from your system and replace them with Flathub's Verified repository. It will not reinstall your flatpaks. It will also disable the system flatpaks in favor of user flatpaks.
+      actions:
+        - run: flatpak remote-delete --system --force fedora
+        - run: flatpak remote-delete --user --force fedora
+        - run: flatpak remote-delete --system --force flathub
+        - run: flatpak remote-delete --user --force flathub
+        - run: flatpak remove --system --noninteractive --all
+        - run: flatpak remote-add --if-not-exists --user --subset=verified flathub-verified https://flathub.org/repo/flathub.flatpakrepo
+  
+  applications:
+    source: yafti.screen.package
+    values:
+      title: Application Installer
+      show_terminal: true
+      package_manager: yafti.plugin.flatpak
+      package_manager_defaults:
+        user: true
+        system: false
+      groups:
+        Core GNOME Apps:
+          description: Core system applications for the GNOME desktop environment.
+          default: false
+          packages:
+            - Calculator: org.gnome.Calculator
+            - Calendar: org.gnome.Calendar
+            - Camera: org.gnome.Snapshot
+            - Characters: org.gnome.Characters
+            - Clocks: org.gnome.clocks
+            - Connections: org.gnome.Connections
+            - Contacts: org.gnome.Contacts
+            - Disk Usage Analyzer: org.gnome.baobab
+            - Document Scanner: org.gnome.SimpleScan
+            - Document Viewer: org.gnome.Evince
+            - Extensions: org.gnome.Extensions
+            - Font Viewer: org.gnome.font-viewer
+            - Image Viewer: org.gnome.Loupe
+            - Logs: org.gnome.Logs
+            - Maps: org.gnome.Maps
+            - Text Editor: org.gnome.TextEditor
+            - Weather: org.gnome.Weather
+
+        Core KDE Plasma Apps:
+          description: Core system applications for the KDE Plasma desktop environment.
+          default: false
+          packages:
+            - Gwenview: org.kde.gwenview
+            
+        System Apps:
+          description: System applications for all desktop environments.
+          default: true
+          packages:
+            - Flatseal (Permission Manager): com.github.tchx84.Flatseal
+            - Warehouse (App Installer/Manager): io.github.flattool.Warehouse
+
+  ptrace:
+    source: yafti.screen.consent
+    values:
+      title: ptrace support
+      condition:
+        run: grep -q "kernel.yama.ptrace_scope = 3" /etc/sysctl.d/hardening.conf
+      description: |
+        This step will enable ptracing child processes, which is needed by strace and gdb.
+      actions:
+        - run: ujust toggle-anticheat-support
+
+  container-userns:
+    source: yafti.screen.consent
+    values:
+      title: Container USERNS support
+      condition:
+        run: run0 semodule -l | grep -q harden_container_userns
+      description: |
+        This step will enable containers to create user namespaces, which is needed by podman.
+      actions:
+        - run: ujust toggle-container-domain-userns-creation
+
+  unconfined-userns:
+    source: yafti.screen.consent
+    values:
+      title: Unconfined USERNS support
+      condition:
+        run: run0 semodule -l | grep -q harden_userns
+      description: |
+        This step will enable unconfined applications to create user namespaces
+      actions:
+        - run: ujust toggle-unconfined-domain-userns-creation
+
+  xwayland:
+    source: yafti.screen.consent
+    values:
+      title: xwayland support
+      condition:
+        run: test '!' -e /etc/systemd/user/plasma-kwin_wayland.service.d/override.conf
+      description: |
+        This step will enable legacy X11 applications such as losslesscut to run
+      actions:
+        - run: ujust toggle-xwayland plasma
+
+  final-screen:
+    source: yafti.screen.title
+    values:
+      title: "Yafti run complete!"
+      icon: "/path/to/icon"
+      links:
+        - "Post-install README":
+            run: /usr/bin/xdg-open https://github.com/secureblue/secureblue/blob/live/docs/POSTINSTALL-README.md
+      description: |
+        Complete your secureblue installation by following the Post-install README.

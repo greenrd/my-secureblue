@@ -27,11 +27,12 @@ modules:
       - emacsclient
       - git
       - python3-ramalama
+      - strace
       - zfs-fuse
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
-    system:
+    user:
       # If no repo information is specified, Flathub will be used by default
       install:
         - com.vscodium.codium
@@ -41,3 +42,8 @@ modules:
       #   - org.gnome.eog
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
+
+  - type: script
+    scripts:
+      - "install-lossless-cut.sh"
+      - "patch-yafti-config.sh"
