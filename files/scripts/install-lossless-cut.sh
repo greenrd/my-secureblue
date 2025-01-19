@@ -1,6 +1,4 @@
 #! /bin/bash -peux
-cd /usr/local
-curl -L --silent 'https://github.com/mifi/lossless-cut/releases/latest/download/LosslessCut-linux-x64.tar.bz2'|tar xvfj -
-mkdir bin
-cd bin
-ln -s ../LosslessCut-linux-x64/losslesscut
+cd /usr/bin
+wget -O losslesscut 'https://github.com/mifi/lossless-cut/releases/latest/download/LosslessCut-linux-x86_64.AppImage'
+chmod a+x losslesscut
