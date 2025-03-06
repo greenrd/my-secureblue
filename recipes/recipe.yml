@@ -46,4 +46,5 @@ modules:
   - type: script
     scripts:
       - "install-lossless-cut.sh"
+      - "install-little_shell_scripts.sh"
       - "patch-yafti-config.sh"
