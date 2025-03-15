@@ -21,12 +21,16 @@ modules:
     # repos:
     #   - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
     install:
+      - cabal-install
+      - conda
       - emacs
       - emacs-json-mode
       - emacs-magit
       - emacsclient
+      - ghc
       - git
       - python3-ramalama
+      - stack
       - strace
       - zfs-fuse
 
@@ -36,8 +40,13 @@ modules:
       # If no repo information is specified, Flathub will be used by default
       install:
         - com.vscodium.codium
+        - io.appflowy.AppFlowy
         - org.fedoraproject.MediaWriter
+        - org.gimp.GIMP
         - org.gnome.Boxes
+        - org.kde.akregator
+        - org.kde.kcalc
+        - org.signal.Signal
       # remove:
       #   - org.gnome.eog
 

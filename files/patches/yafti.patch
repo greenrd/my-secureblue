@@ -1,9 +1,18 @@
 --- yafti.yml.orig	2025-01-18 21:08:24.713314324 +0000
-+++ yafti.yml	2025-01-19 11:08:07.722241842 +0000
-@@ -78,6 +78,50 @@
++++ yafti.yml	2025-03-15 07:14:40.973350385 +0000
+@@ -78,6 +78,59 @@
              - Flatseal (Permission Manager): com.github.tchx84.Flatseal
              - Warehouse (App Installer/Manager): io.github.flattool.Warehouse
  
++  cli-applications:
++    source: yafti.screen.consent
++    values:
++      title: CLI applications
++      description: |
++        This step will install some useful CLI applications.
++      actions:
++        - run: brew install gh chezmoi pwgen tmux tmux-mem-cpu-load tpm aider
++
 +  ptrace:
 +    source: yafti.screen.consent
 +    values:
