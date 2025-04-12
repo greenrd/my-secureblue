@@ -1,0 +1,90 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.36.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           sort-yaml-seqs
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/greenrd/sort-yaml-seqs#readme>
+homepage:       https://github.com/greenrd/sort-yaml-seqs#readme
+bug-reports:    https://github.com/greenrd/sort-yaml-seqs/issues
+author:         Robin Green
+maintainer:     greenrd@greenrd.org
+copyright:      2025 Robin Green
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/greenrd/sort-yaml-seqs
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_sort_yaml_seqs
+  autogen-modules:
+      Paths_sort_yaml_seqs
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , containers >=0.6.7 && <0.7
+    , libyaml-streamly ==0.2.3.0
+    , process >=1.6.19.0 && <1.7
+    , streamly-core
+    , text >=2.0.2 && <2.1
+  default-language: Haskell2010
+
+executable sort-yaml-seqs-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_sort_yaml_seqs
+  autogen-modules:
+      Paths_sort_yaml_seqs
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers >=0.6.7 && <0.7
+    , libyaml-streamly ==0.2.3.0
+    , process >=1.6.19.0 && <1.7
+    , sort-yaml-seqs
+    , streamly-core
+    , text >=2.0.2 && <2.1
+  default-language: Haskell2010
+
+test-suite sort-yaml-seqs-test
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      LibSpec
+      MainSpec
+      Paths_sort_yaml_seqs
+  autogen-modules:
+      Paths_sort_yaml_seqs
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -F -pgmF=skeletest-preprocessor
+  build-tools:
+      sort-yaml-seqs-exe
+  build-tool-depends:
+      skeletest:skeletest-preprocessor
+  build-depends:
+      base >=4.7 && <5
+    , containers >=0.6.7 && <0.7
+    , hedgehog-classes
+    , libyaml-streamly ==0.2.3.0
+    , process >=1.6.19.0 && <1.7
+    , skeletest ==0.1.0
+    , sort-yaml-seqs
+    , streamly-core
+    , text >=2.0.2 && <2.1
+  default-language: Haskell2010

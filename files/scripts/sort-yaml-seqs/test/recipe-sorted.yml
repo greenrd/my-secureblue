@@ -1,4 +1,3 @@
----
 name: my-secureblue
 description: This is my personal OS image.
 base-image: ghcr.io/secureblue/kinoite-main-hardened
@@ -16,20 +15,8 @@ modules:
   - emacs-json-mode
   - emacs-magit
   - emacsclient
-  - ghc-Diff-devel
-  - ghc-aeson-pretty-devel
-  - ghc-concurrent-output-devel
-  - ghc-constraints-devel
-  - ghc-erf-devel
-  - ghc-lifted-base-devel
-  - ghc-megaparsec-devel
-  - ghc-mmorph-devel
-  - ghc-pretty-show-devel
-  - ghc-resourcet-devel
-  - ghc-silently-devel
-  - ghc-unliftio-devel
+  - ghc
   - git
-  - happy
   - python3-ramalama
   - stack
   - strace
@@ -51,5 +38,4 @@ modules:
   scripts:
   - "install-little_shell_scripts.sh"
   - "install-lossless-cut.sh"
-  - "install-sort-yaml-seqs.sh"
   - "patch-yafti-config.sh"

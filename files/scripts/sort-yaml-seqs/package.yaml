@@ -1,0 +1,70 @@
+name:                sort-yaml-seqs
+version:             0.1.0.0
+github:              "greenrd/sort-yaml-seqs"
+license:             BSD-3-Clause
+author:              "Robin Green"
+maintainer:          "greenrd@greenrd.org"
+copyright:           "2025 Robin Green"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/greenrd/sort-yaml-seqs#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- containers >= 0.6.7 && < 0.7
+- libyaml-streamly == 0.2.3.0
+- process >= 1.6.19.0 && < 1.7
+- streamly-core
+- text >= 2.0.2 && < 2.1
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  sort-yaml-seqs-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - sort-yaml-seqs
+
+tests:
+  sort-yaml-seqs-test:
+    main:                Main.hs
+    source-dirs:         test
+    build-tools:
+    - sort-yaml-seqs-exe
+    - skeletest:skeletest-preprocessor
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -F -pgmF=skeletest-preprocessor
+    dependencies:
+    - hedgehog-classes
+    - sort-yaml-seqs
+    - skeletest == 0.1.0
