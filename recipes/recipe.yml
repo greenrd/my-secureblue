@@ -52,4 +52,4 @@ modules:
   - "install-little_shell_scripts.sh"
   - "install-lossless-cut.sh"
   - "install-sort-yaml-seqs.sh"
-  - "patch-yafti-config.sh"
+  #- "patch-yafti-config.sh"
