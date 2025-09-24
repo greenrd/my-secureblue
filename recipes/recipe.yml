@@ -35,21 +35,22 @@ modules:
   - strace
   - zfs-fuse
 - type: default-flatpaks
-  notify: true
-  user:
-    install:
-    - com.vscodium.codium
-    - io.appflowy.AppFlowy
-    - org.fedoraproject.MediaWriter
-    - org.gimp.GIMP
-    - org.gnome.Boxes
-    - org.kde.akregator
-    - org.kde.kcalc
-    - org.signal.Signal
+  configurations:
+    - notify: true
+      install:
+        - com.vscodium.codium
+        - io.appflowy.AppFlowy
+        - org.fedoraproject.MediaWriter
+        - org.gimp.GIMP
+        - org.gnome.Boxes
+        - org.kde.akregator
+        - org.kde.kcalc
+        - org.signal.Signal
 - type: signing
+- type: yafti
 - type: script
   scripts:
   - "install-little_shell_scripts.sh"
   - "install-lossless-cut.sh"
   - "install-sort-yaml-seqs.sh"
-  #- "patch-yafti-config.sh"
+  - "patch-yafti-config.sh"
