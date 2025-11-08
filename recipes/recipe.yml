@@ -33,7 +33,6 @@ modules:
   - python3-ramalama
   - stack
   - strace
-  - zfs-fuse
 - type: default-flatpaks
   configurations:
     - notify: true
