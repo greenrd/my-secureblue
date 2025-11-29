@@ -34,12 +34,12 @@ library
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
+      base >=4.19.2 && <5
     , containers >=0.6.7 && <0.7
     , libyaml-streamly ==0.2.3.0
     , process >=1.6.19.0 && <1.7
     , streamly-core
-    , text >=2.0.2 && <2.1
+    , text >=2.1.1 && <2.2
   default-language: Haskell2010
 
 executable sort-yaml-seqs-exe
@@ -52,13 +52,13 @@ executable sort-yaml-seqs-exe
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      base >=4.19.2 && <5
     , containers >=0.6.7 && <0.7
     , libyaml-streamly ==0.2.3.0
     , process >=1.6.19.0 && <1.7
     , sort-yaml-seqs
     , streamly-core
-    , text >=2.0.2 && <2.1
+    , text >=2.1.1 && <2.2
   default-language: Haskell2010
 
 test-suite sort-yaml-seqs-test
@@ -78,7 +78,7 @@ test-suite sort-yaml-seqs-test
   build-tool-depends:
       skeletest:skeletest-preprocessor
   build-depends:
-      base >=4.7 && <5
+      base >=4.19.2 && <5
     , containers >=0.6.7 && <0.7
     , hedgehog-classes
     , libyaml-streamly ==0.2.3.0
@@ -86,5 +86,5 @@ test-suite sort-yaml-seqs-test
     , skeletest ==0.1.0
     , sort-yaml-seqs
     , streamly-core
-    , text >=2.0.2 && <2.1
+    , text >=2.1.1 && <2.2
   default-language: Haskell2010

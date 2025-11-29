@@ -20,12 +20,12 @@ extra-source-files:
 description:         Please see the README on GitHub at <https://github.com/greenrd/sort-yaml-seqs#readme>
 
 dependencies:
-- base >= 4.7 && < 5
+- base >= 4.19.2 && < 5
 - containers >= 0.6.7 && < 0.7
 - libyaml-streamly == 0.2.3.0
 - process >= 1.6.19.0 && < 1.7
 - streamly-core
-- text >= 2.0.2 && < 2.1
+- text >= 2.1.1 && < 2.2
 
 ghc-options:
 - -Wall

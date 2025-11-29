@@ -3,3 +3,4 @@ cosign.private
 /Containerfile
 files/firstboot/yafti.yml.orig
 logs
+/.bluebuild-scripts_*
