@@ -29,6 +29,7 @@ modules:
   - ghc-silently-devel
   - ghc-unliftio-devel
   - git
+  - gnome-boxes
   - happy
   - python3-ramalama
   - stack
@@ -41,7 +42,6 @@ modules:
         - io.appflowy.AppFlowy
         - org.fedoraproject.MediaWriter
         - org.gimp.GIMP
-        - org.gnome.Boxes
         - org.kde.akregator
         - org.kde.kcalc
         - org.signal.Signal
