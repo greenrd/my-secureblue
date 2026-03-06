@@ -10,7 +10,10 @@ modules:
     destination: /
 - type: rpm-ostree
   install:
+  - bcvk
+  - bpftrace
   - cabal-install
+  - cargo
   - conda
   - emacs
   - emacs-json-mode
@@ -31,7 +34,13 @@ modules:
   - git
   - gnome-boxes
   - happy
+  - libyaml-devel
+  - openssl-devel
+  - podman-machine
   - python3-ramalama
+  - rust
+  - rust-src
+  - rustfmt
   - stack
   - strace
 - type: default-flatpaks
