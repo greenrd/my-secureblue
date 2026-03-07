@@ -56,6 +56,9 @@ modules:
         - org.signal.Signal
 - type: signing
 - type: yafti
+- type: kargs
+  kargs:
+  - lockdown=integrity
 - type: script
   scripts:
   - "install-little_shell_scripts.sh"
