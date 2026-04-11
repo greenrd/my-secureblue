@@ -1,6 +1,6 @@
 cabal-version: 2.2
 
--- This file has been generated from package.yaml by hpack version 0.36.1.
+-- This file has been generated from package.yaml by hpack version 0.37.0.
 --
 -- see: https://github.com/sol/hpack
 
@@ -83,7 +83,7 @@ test-suite sort-yaml-seqs-test
     , hedgehog-classes
     , libyaml-streamly ==0.2.3.0
     , process >=1.6.19.0 && <1.7
-    , skeletest ==0.1.0
+    , skeletest ==0.4.1
     , sort-yaml-seqs
     , streamly-core
     , text >=2.1.1 && <2.2

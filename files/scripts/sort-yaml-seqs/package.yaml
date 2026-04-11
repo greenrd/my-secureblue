@@ -67,4 +67,4 @@ tests:
     dependencies:
     - hedgehog-classes
     - sort-yaml-seqs
-    - skeletest == 0.1.0
+    - skeletest == 0.4.1
