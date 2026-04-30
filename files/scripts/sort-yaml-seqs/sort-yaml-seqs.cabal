@@ -1,6 +1,6 @@
 cabal-version: 2.2
 
--- This file has been generated from package.yaml by hpack version 0.37.0.
+-- This file has been generated from package.yaml by hpack version 0.38.3.
 --
 -- see: https://github.com/sol/hpack
 
@@ -11,7 +11,7 @@ homepage:       https://github.com/greenrd/sort-yaml-seqs#readme
 bug-reports:    https://github.com/greenrd/sort-yaml-seqs/issues
 author:         Robin Green
 maintainer:     greenrd@greenrd.org
-copyright:      2025 Robin Green
+copyright:      2026 Robin Green
 license:        BSD-3-Clause
 license-file:   LICENSE
 build-type:     Simple
@@ -35,7 +35,7 @@ library
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.19.2 && <5
-    , containers >=0.6.7 && <0.7
+    , containers ==0.7.*
     , libyaml-streamly ==0.2.3.0
     , process >=1.6.19.0 && <1.7
     , streamly-core
@@ -53,7 +53,7 @@ executable sort-yaml-seqs-exe
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.19.2 && <5
-    , containers >=0.6.7 && <0.7
+    , containers ==0.7.*
     , libyaml-streamly ==0.2.3.0
     , process >=1.6.19.0 && <1.7
     , sort-yaml-seqs
@@ -73,13 +73,12 @@ test-suite sort-yaml-seqs-test
   hs-source-dirs:
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -F -pgmF=skeletest-preprocessor
-  build-tools:
-      sort-yaml-seqs-exe
   build-tool-depends:
       skeletest:skeletest-preprocessor
+    , sort-yaml-seqs:sort-yaml-seqs-exe
   build-depends:
       base >=4.19.2 && <5
-    , containers >=0.6.7 && <0.7
+    , containers ==0.7.*
     , hedgehog-classes
     , libyaml-streamly ==0.2.3.0
     , process >=1.6.19.0 && <1.7

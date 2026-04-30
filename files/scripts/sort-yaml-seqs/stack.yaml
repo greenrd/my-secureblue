@@ -17,8 +17,7 @@
 #
 # resolver: ./custom-snapshot.yaml
 # resolver: https://example.com/snapshots/2023-01-01.yaml
-resolver:
-  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/23/28.yaml
+resolver: lts-24.38
 
 # User packages to be built.
 # Various formats can be used as shown in the example below.
@@ -42,12 +41,9 @@ packages:
 #
 # extra-deps: []
 extra-deps:
-- yaml-streamly-0.12.5
 - libyaml-streamly-0.2.3.0@sha256:a8b69ec57ab44e562d90f6c21058861c80732a1932cb1d214fc450ecf53b36ba,1913
 - skeletest-0.4.1
-- Diff-1.0.2@sha256:39d55f9d86e54939b7cf443fb3a3970d98341073dfda7d52cfa9bc6562f139d9,1581
 - strip-ansi-escape-0.1.0.0@sha256:08f2ed93b16086a837ec46eab7ce8d27cf39d47783caaeb818878ea33c2ff75f,1628
-- recover-rtti-0.5.0@sha256:f5145507c7091da1ffe619a88551823087912ee78ffe42eea2404c4b1bbf69d4,5080
 
 # Override default flag values for local packages and extra-deps
 # flags: {}

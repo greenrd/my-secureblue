@@ -12,13 +12,17 @@ modules:
   install:
   - bcvk
   - bpftrace
+  - btop
   - cabal-install
   - cargo
+  - chromedriver
   - conda
+#  - doclifter
   - emacs
   - emacs-json-mode
   - emacs-magit
   - emacsclient
+  - funionfs
   - ghc-Diff-devel
   - ghc-aeson-pretty-devel
   - ghc-concurrent-output-devel
@@ -48,12 +52,19 @@ modules:
     - notify: true
       install:
         - com.vscodium.codium
+        - dev.vencord.Vesktop
         - io.appflowy.AppFlowy
         - org.fedoraproject.MediaWriter
         - org.gimp.GIMP
         - org.kde.akregator
+        - org.kde.gwenview
         - org.kde.kcalc
+        - org.kde.okular
+        - org.libreoffice.LibreOffice
+        - org.mixxx.Mixxx
         - org.signal.Signal
+        - org.telegram.desktop
+        - org.zotero.Zotero
 - type: signing
 - type: yafti
 - type: kargs

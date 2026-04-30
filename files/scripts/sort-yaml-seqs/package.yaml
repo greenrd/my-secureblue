@@ -4,7 +4,7 @@ github:              "greenrd/sort-yaml-seqs"
 license:             BSD-3-Clause
 author:              "Robin Green"
 maintainer:          "greenrd@greenrd.org"
-copyright:           "2025 Robin Green"
+copyright:           "2026 Robin Green"
 
 extra-source-files:
 - README.md
@@ -21,7 +21,7 @@ description:         Please see the README on GitHub at <https://github.com/gree
 
 dependencies:
 - base >= 4.19.2 && < 5
-- containers >= 0.6.7 && < 0.7
+- containers >= 0.7 && < 0.8
 - libyaml-streamly == 0.2.3.0
 - process >= 1.6.19.0 && < 1.7
 - streamly-core
