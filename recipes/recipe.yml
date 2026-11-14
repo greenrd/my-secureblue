@@ -39,10 +39,22 @@ modules:
     - git
     - gnome-boxes
     - happy
+    - httpd
+    - java-latest-openjdk-devel
     - libyaml-devel
+    - mod_ssl
     - openssl-devel
+    - pgadmin4
     - podman-machine
+    - postgresql
+    - postgresql-server
     - python3-ramalama
+    - R
+    - R-fs
+    - R-lintr
+    - R-pkgload
+    - R-roxygen2
+    - R-xml2
     - rust
     - rust-src
     - rustfmt
